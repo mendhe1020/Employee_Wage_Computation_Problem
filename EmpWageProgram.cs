@@ -8,29 +8,45 @@ namespace Employee_Wage_Computation_Problem
 {
     public static class EmpWageProgram
     {
+        const int WagePrHr = 20;
+        const int FullDayHr = 8;
+        const int PartTimeHr = 4;
+        const int NumOfWorkingDays = 20;
         public static void EmpWage()
         {
-            int WagePrHr = 20;
-            int FullDayHr = 8;
-            int PartTimeHr = 4;
+            int TotalEmpWage = 0;
+            int EmpWage = 0;
 
-            Random random = new Random();
-            int Empis = random.Next(3);
+            for(int day =0;day<NumOfWorkingDays;day++)
+            {
+                Random random = new Random();
+                int Empis = random.Next(3);
 
-            if (Empis == 0)
-            {
-                Console.WriteLine("Emploee is Present");
-                Console.WriteLine(WagePrHr * FullDayHr);
+                switch(Empis)
+                {
+                    case 1 :
+                        Console.WriteLine(WagePrHr * FullDayHr);
+                        break;
+
+                    case 2 :
+                        Console.WriteLine(WagePrHr * PartTimeHr);
+                        break;
+
+                    default:
+                        Console.WriteLine("Emp is Abcent");
+                        break;
+
+                }
+
             }
-            else if (Empis == 1)
-            {
-                Console.WriteLine("Emp is part time present");
-                Console.WriteLine(WagePrHr * PartTimeHr);
-            }
-            else
-            {
-                Console.WriteLine("Emploee is Abcent");
-            }
+            EmpWage = WagePrHr * PartTimeHr;
+            TotalEmpWage += EmpWage;
+            Console.WriteLine(TotalEmpWage);
+            
+
+
+
+
         }
     }
 }
